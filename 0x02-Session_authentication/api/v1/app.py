@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Route module for API
+Route module for the API
 """
 from os import getenv
 from api.v1.views import app_views
@@ -45,7 +45,7 @@ def bef_req():
             '/api/v1/unauthorized/',
             '/api/v1/forbidden/',
             '/api/v1/auth_session/login/'
-            ]
+        ]
         if auth.require_auth(request.path, excluded):
             cookie = auth.session_cookie(request)
             if auth.authorization_header(request) is None and cookie is None:
